@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triva!</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/jquery-min.js"></script>
+    <script src="scripts/bootstrap.min.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+  </head>
+  <img src="./images/correct.gif" alt="" class="confetti none">
+  <body class="container">
+    <!-- MAIN WELCOME MESSAGE AND BUTTON CONTAINER -->
+    <h1 class="text-center welcome-message">
+      Hello, Please select a category to begin!
+    </h1>
+    <div class="catagory-container"></div>
+
+    <div class="question-container none">
+      <div class="score">
+        <div
+          class="btn btn-outline-warning select-catagory"
+          onclick="selectCatagory()"
+        >
+          select category
+        </div>
+        <div class="correct">
+          Correct : <span class="correct-score">0</span>
+        </div>
+        <div class="wrong">Wrong : <span class="wrong-score">0</span></div>
+        <div class="streak">Streak : <span class="streak-score">0</span></div>
+        <div class="heighest-streak">Heighest streak : <span class="heighest-streak-score">0</span></div>
+
+      </div>
+
+      <h1 class="question"></h3>
+      <div class="awnser-container">
+        <div class="awnser" onclick="revealAwnser(this)"></div>
+        <div class="awnser" onclick="revealAwnser(this)"></div>
+        <div class="awnser" onclick="revealAwnser(this)"> </div>
+        <div class="awnser" onclick="revealAwnser(this)"></div>
+      </div>
+      <button type="button" class="btn btn-outline-warning next-question none" onclick="getNextQuestion()">Next Question</button>
+    </div>
+  </body>
+
+  <!-- TEMPATE FOR CATAGORY BUTTON -->
+  <template id="catagory-template">
+    <div class="btn btn-outline-warning flex-child"></div>
+  </template>
+
+  <!-- USER NAME MODEL -->
+  <div id="get-user-name-mdl" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Hello new user!</h5>
+        </div>
+        <div class="modal-body">
+          <p>Please let me know your name!</p>
+          <input
+            type="text"
+            class="user-name py-1 px-1"
+            placeholder="Your user name!"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            onclick="saveUserName()"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
